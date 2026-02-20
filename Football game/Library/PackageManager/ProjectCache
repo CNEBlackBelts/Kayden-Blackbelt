@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639066027120903901
-    m_Hash: 1034416442
+      ticks: 639071212337483000
+    m_Hash: 3043610720
   m_LockFileStatus:
     m_FilePath: C:/Users/ninja22/Pictures/Kayden-Blackbelt/Football game/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 639066028321338348
-    m_Hash: 2865678278
+      ticks: 639071212337598635
+    m_Hash: 550384795
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,12 +22,12 @@ m_LocalPackages:
 m_ProjectPath: C:/Users/ninja22/Pictures/Kayden-Blackbelt/Football game/Packages
 m_EditorVersion: 2022.3.31f1 (4ede2d13e8b4)
 m_ResolvedPackages:
-- packageId: com.unity.cinemachine@2.10.0
+- packageId: com.unity.cinemachine@2.10.5
   testable: 0
   isDirectDependency: 1
-  version: 2.10.0
+  version: 2.10.5
   source: 1
-  resolvedPath: C:\Users\ninja22\Pictures\Kayden-Blackbelt\Football game\Library\PackageCache\com.unity.cinemachine@2.10.0
+  resolvedPath: C:\Users\ninja22\Pictures\Kayden-Blackbelt\Football game\Library\PackageCache\com.unity.cinemachine@2.10.5
   assetPath: Packages/com.unity.cinemachine
   name: com.unity.cinemachine
   displayName: Cinemachine
@@ -36,12 +36,11 @@ m_ResolvedPackages:
     email: 
     url: 
   category: cinematography
-  type: assets
-  description: "Smart camera tools for passionate creators. \n\nNew starting from
-    2.7.1: Are you looking for the Cinemachine menu? It has moved to the GameObject
-    menu.\n\nIMPORTANT NOTE: If you are upgrading from the legacy Asset Store version
-    of Cinemachine, delete the Cinemachine asset from your project BEFORE installing
-    this version from the Package Manager."
+  type: 
+  description: "Smart camera tools for passionate creators. \n\n--- ATTENTION ---\nUpgrading
+    a project from Cinemachine 2.x to Cinemachine 3.x is not automatic and not trivial.\nDon't
+    do it unless you're willing to put in the required effort.\n\n> For more details,
+    refer to the upgrade guide:\nhttps://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/CinemachineUpgradeFrom2.html\n--------------------\n\n\n"
   status: 0
   errors: []
   versions:
@@ -199,13 +198,13 @@ m_ResolvedPackages:
     configSource: 0
   hideInEditor: 1
   isAssetStorePackage: 0
-  datePublishedTicks: 638451680320000000
+  datePublishedTicks: 638932756632190000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.cinemachine@2.10/manual/index.html
   hasRepository: 1
   repository:
     type: git
     url: https://github.com/Unity-Technologies/com.unity.cinemachine.git
-    revision: 3b55bae0f41b1048cc2080391ac3d4eb1c22b7ef
+    revision: 87d5dbb847c5fae7125aa05286e81b6bb012076f
     path: 
   unityLifecycle:
     version: 2.10.0
