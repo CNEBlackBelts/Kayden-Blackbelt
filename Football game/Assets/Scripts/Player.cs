@@ -8,14 +8,17 @@ public class Player : MonoBehaviour
 {
     //private StarterAssetsInputs starterAssetsInputs;
     //private Animator shootAnim;
-    [SerializeField] TextMeshProUGUI textScore;
+    [SerializeField] TextMeshProUGUI mytextScore;
+    [SerializeField] TextMeshProUGUI OpptextScore;
+    [SerializeField] private int myscore = 0;
+    [SerializeField] private int oppscore = 0;
     private Ball ballAttachedToPlayer;
     private float timeShot = -1f;
     public const int ANIMATION_LAYER_SHOOT = 1;
     private StarterAssetsInputs starterAssetsInputs;
     public GameObject PlayerArmature;
     public Animator shootAnim;
-    private int myScore, otherScore;
+  
 
 
     public Ball BallAttachedToPlayer { get => ballAttachedToPlayer; set => ballAttachedToPlayer = value; }
@@ -24,6 +27,8 @@ public class Player : MonoBehaviour
     {
 
         shootAnim = GetComponent<Animator>();
+        mytextScore.text = "" + myscore;
+        OpptextScore.text = "" + oppscore;
     }
 
     void Update()
@@ -67,12 +72,16 @@ public class Player : MonoBehaviour
 
     public void IncreaseMyScore()
     {
-        myScore++;
+        myscore++;
+        mytextScore.text = "" +myscore;
+
+
     }
 
     public void IncreaseOtherScore()
     {
-        otherScore++;
+        oppscore++;
+        OpptextScore.text = "" + oppscore;
     }
 
 }

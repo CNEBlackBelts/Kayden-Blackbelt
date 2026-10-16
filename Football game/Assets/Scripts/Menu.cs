@@ -25,8 +25,10 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
-    //1:17:24
-    
+    public void PlayGame3()
+    {
+        SceneManager.LoadScene(4);
+    }
 
 
 

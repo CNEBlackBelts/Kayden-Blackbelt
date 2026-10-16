@@ -11,7 +11,8 @@ TagManager:
   - Pickup
   - CinemachineTarget
   - Ball
-  - GoalDetetor1
+  - GoalDetector1
+  - GoalDetector2
   layers:
   - Default
   - TransparentFX

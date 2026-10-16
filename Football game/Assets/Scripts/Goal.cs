@@ -6,6 +6,8 @@ public class Goal : MonoBehaviour
 {
 
     [SerializeField] private Player scriptPlayer;
+
+    public GameObject GoalDetector;
    
 
     // Start is called before the first frame update
@@ -17,25 +19,31 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("Ball"))
+        if (other.gameObject.tag == "Ball" && GoalDetector != null)
         {
-            if (name.Equals("GoalDetetor1"))
-            {
-                scriptPlayer.IncreaseMyScore();
-            }
-            else
-            {
 
-                scriptPlayer.IncreaseOtherScore();
+            scriptPlayer.IncreaseMyScore();
+            Debug.Log("You scored");
+            
 
-            }
+
+          
         }
+
+       
     }
+
+    
+
+
 }
 
 

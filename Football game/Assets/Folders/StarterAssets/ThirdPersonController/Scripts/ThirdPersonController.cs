@@ -135,12 +135,14 @@ namespace StarterAssets
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
-#if ENABLE_INPUT_SYSTEM 
+#if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();
+         
+            
 #else
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
@@ -156,14 +158,45 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
+            if (!PauseMenuController.GameIsPaused)
+            {
+
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+
+
+
+            }
+            else if (PauseMenuController.GameIsPaused)
+            {
+                Time.timeScale = 0f;
+
+                Cursor.lockState = CursorLockMode.Locked;
+
+            }
+
+            
         }
 
         private void LateUpdate()
         {
-            CameraRotation();
+            
+            if (!PauseMenuController.GameIsPaused)
+            {
+                CameraRotation();
+
+
+
+
+            }
+            else if (PauseMenuController.GameIsPaused)
+            {
+                Time.timeScale = 0f;
+
+                Cursor.lockState = CursorLockMode.Locked;
+
+            }
         }
 
         private void AssignAnimationIDs()
