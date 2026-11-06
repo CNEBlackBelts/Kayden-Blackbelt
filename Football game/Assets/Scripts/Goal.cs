@@ -25,26 +25,26 @@ public class Goal : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ball" && GoalDetector != null)
+        if (other.GetComponent<Ball>() != null)
         {
-
-            scriptPlayer.IncreaseMyScore();
-            Debug.Log("You scored");
-            
-
-
-          
+            if (name.Equals("GoalDetector1"))
+            {
+                Game.Instance.ScoreGoal(1);
+            }
+            else
+            {
+                Game.Instance.ScoreGoal(0);
+            }
         }
-
-       
     }
+}
 
     
 
 
-}
+
 
 
 

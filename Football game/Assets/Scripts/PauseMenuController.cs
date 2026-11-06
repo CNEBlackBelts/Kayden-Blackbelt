@@ -34,7 +34,7 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 0f;
         GameIsPaused = true;
 
-        playerController.enabled = false;
+        //playerController.enabled = false;
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
