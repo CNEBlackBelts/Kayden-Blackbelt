@@ -1,0 +1,4 @@
+Sounds (effects and background songs)
+Fix Starting position of Player
+Fix overlapping UI
+Test on website build to see the ui

@@ -207,4 +207,9 @@ public class Player : MonoBehaviour
             transform.position = position;
         }
     }
+
+    public void OnFootstep()
+    {
+
+    }
 }
