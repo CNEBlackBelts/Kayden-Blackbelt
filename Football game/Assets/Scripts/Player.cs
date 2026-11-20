@@ -198,6 +198,7 @@ public class Player : MonoBehaviour
     {
         if (Team.IsHuman)
         {
+            Debug.Log("Setting Human Position");
             GetComponent<CharacterController>().enabled = false;
             transform.position = position;
             GetComponent<CharacterController>().enabled = true;

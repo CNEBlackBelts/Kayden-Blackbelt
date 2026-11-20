@@ -45,7 +45,7 @@ public class Game : MonoBehaviour
     private float goalTextColorAlpha;
     List<Team> teams = new List<Team>();
     private Transform[] goals = new Transform[2];
-    private Vector3 kickOffPosition = new Vector3(0, PLAYER_Y_POSITION, 0.1f);
+    private Vector3 kickOffPosition = new Vector3(281.981f, PLAYER_Y_POSITION, 146f);
 
     public Player PassDestinationPlayer { get => passDestinationPlayer; set => passDestinationPlayer = value; }
     public Player PlayerWithBall { get => playerWithBall; }
@@ -117,6 +117,7 @@ public class Game : MonoBehaviour
         {
             foreach (Player player in team.Players)
             {
+                Debug.Log("Resetting Players");
                 player.SetPosition(player.InitialPosition);
                 player.transform.LookAt(goals[player.Team.Number]);
             }
