@@ -38,6 +38,11 @@ public class Goal : MonoBehaviour
                 Game.Instance.ScoreGoal(0);
             }
         }
+
+        if (other.gameObject.tag.Equals("Ball"))
+        {
+            Debug.Log("Goal");
+        }
     }
 }
 

@@ -42,11 +42,13 @@ public class Ball : MonoBehaviour
     }
     public void PutOnCenterSpot()
     {
-        transform.position = new Vector3(-0.1f, BALL_GROUND_POSITION_Y, -0.049f);
+        transform.position = new Vector3(280.68f, BALL_GROUND_POSITION_Y, 143.146f);
     }
-
+    bool isThrowingIn;
     private void TakeThrowIn()
     {
+       if(isThrowingIn == true) { return; }
+        isThrowingIn = true;
         if (Game.Instance.PlayerWithBall != null)
         {
             Game.Instance.PlayerWithBall.HasBall = false;
@@ -56,7 +58,9 @@ public class Ball : MonoBehaviour
         rigidbody.velocity = Vector3.zero;
         rigidbody.angularVelocity = Vector3.zero;
         Player player = Game.Instance.GetPlayerToThrowIn();
-        player.SetPosition(new Vector3(ballOutOfFieldposition.x, player.transform.position.y, ballOutOfFieldposition.z));
+        Debug.Log(player);
+        player.SetPosition(new Vector3(ballOutOfFieldposition.x, -8.485094f, ballOutOfFieldposition.z));
+        Debug.Log(new Vector3(ballOutOfFieldposition.x, -8.485094f, ballOutOfFieldposition.z));
         // Look in the directon of the field. Otherwise the ball will be out of field again.
         player.transform.LookAt(Game.Instance.KickOffPosition);
         Game.Instance.SetPlayerWithBall(player);
@@ -80,14 +84,14 @@ public class Ball : MonoBehaviour
             soundWhistle.Play();
             isThrowIn = true;
             ballOutOfFieldTimeOut = 1.0f;
-            ballOutOfFieldposition = new Vector3(transform.position.x, BALL_GROUND_POSITION_Y, -25);
+            ballOutOfFieldposition = new Vector3(transform.position.x, BALL_GROUND_POSITION_Y, -31);
         }
         if (transform.position.z > Game.FIELD_BOUNDARY_UPPER_Z)
         {
             soundWhistle.Play();
             isThrowIn = true;
             ballOutOfFieldTimeOut = 1.0f;
-            ballOutOfFieldposition = new Vector3(transform.position.x, BALL_GROUND_POSITION_Y, 25);
+            ballOutOfFieldposition = new Vector3(transform.position.x, BALL_GROUND_POSITION_Y, 111);
         }
 
         if (transform.position.x < Game.FIELD_BOUNDARY_LOWER_X)

@@ -14,10 +14,10 @@ public class Game : MonoBehaviour
     public static Game Instance;
     public const float HAVING_BALL_SLOWDOWN_FACTOR = 0.8f;
     public const float PLAYER_Y_POSITION = 0.5f;
-    public const float FIELD_BOUNDARY_LOWER_X = -52.6f;
-    public const float FIELD_BOUNDARY_UPPER_X = 52.3f;
-    public const float FIELD_BOUNDARY_LOWER_Z = -25f;
-    public const float FIELD_BOUNDARY_UPPER_Z = 25f;
+    public const float FIELD_BOUNDARY_LOWER_X = 244.023f;
+    public const float FIELD_BOUNDARY_UPPER_X = 314.72f;
+    public const float FIELD_BOUNDARY_LOWER_Z = 79.66f;
+    public const float FIELD_BOUNDARY_UPPER_Z = 203.822f;
     [SerializeField] private GameObject playerSpawnPosition1;
     [SerializeField] private GameObject playerSpawnPosition2;
     [SerializeField] private GameObject playerSpawnPosition3;
@@ -117,14 +117,15 @@ public class Game : MonoBehaviour
         {
             foreach (Player player in team.Players)
             {
-                Debug.Log("Resetting Players");
+                
                 player.SetPosition(player.InitialPosition);
                 player.transform.LookAt(goals[player.Team.Number]);
             }
         }
         // Set player to kick off
-        Vector3 position = new(0.5f - teamKickOff, KickOffPosition.y, kickOffPosition.z);
+        Vector3 position = new Vector3(kickOffPosition.x - teamKickOff, KickOffPosition.y, kickOffPosition.z);
         teams[teamKickOff].Players[0].SetPosition(position);
+        
         scriptBall.BallOutOfFieldTimeOut = 0;
         scriptBall.PutOnCenterSpot();
         scriptBall.Rigidbody.velocity = Vector3.zero;
@@ -170,7 +171,7 @@ public class Game : MonoBehaviour
         teamKickOff = OtherTeam(team);
         goalTextColorAlpha = 1;
         soundCheer.Play();
-        textScore.text = "Score: " + teams[0].Score + "-" + teams[1].Score;
+        textScore.text = teams[0].Score + "-" + teams[1].Score;
         playerLastTouchedBall.ScoreGoal();
 
         WaitForKickOff(5.0f);
@@ -191,10 +192,11 @@ public class Game : MonoBehaviour
             waitingTimeKickOff -= Time.deltaTime;
             if (waitingTimeKickOff < 3)
             {
-                ResetPlayersAndBall();
+                
             }
             if (waitingTimeKickOff <= 0)
             {
+                ResetPlayersAndBall();
                 ActiveHumanPlayer.GetComponent<ThirdPersonController>().MoveSpeed = 8;
                 ActiveHumanPlayer.GetComponent<ThirdPersonController>().SprintSpeed = 15;
                 waitingForKickOff = false;
@@ -286,6 +288,7 @@ public class Game : MonoBehaviour
     // Move players that are too close in the direction of the center of the field
     public void SetMinimumDistanceOtherPlayers(Player playerToTakeDistanceFrom)
     {
+        
         foreach (Team team in teams)
         {
             foreach (Player player in team.Players)
@@ -297,6 +300,8 @@ public class Game : MonoBehaviour
                     {
                         Vector3 moveToDistanceDirection = (Vector3.zero - playerToTakeDistanceFrom.transform.position).normalized * 8;
                         player.SetPosition(new Vector3(player.transform.position.x + moveToDistanceDirection.x,
+                                                player.transform.position.y, player.transform.position.z + moveToDistanceDirection.z)); 
+                        Debug.Log(new Vector3(player.transform.position.x + moveToDistanceDirection.x,
                                                 player.transform.position.y, player.transform.position.z + moveToDistanceDirection.z));
                     }
                 }

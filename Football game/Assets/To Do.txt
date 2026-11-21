@@ -1,4 +1,18 @@
 Sounds (effects and background songs)
-Fix Starting position of Player
 Fix overlapping UI
 Test on website build to see the ui
+Fix shooting
+Glitching through the ground
+
+When scoring still have ball
+
+In ball script need to find values for
+: TEAM 0
+ Line 105 - Goal Kick
+ Line 112 - Corners
+ Line 116 - Corners
+
+ SAME AGAIN FOR TEAM 1
+ Line 128
+ Line 135
+ Line 140
